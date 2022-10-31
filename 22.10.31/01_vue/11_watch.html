@@ -41,22 +41,22 @@
         //   this.myObj.completed = !this.myObj.completed
         // }
       },
-      watch: {
+      watch: {    // 값의 변화를 tracking 하기 때문에 디버깅 할 때 많이 쓰인다.
         number: function (val, oldVal) {
           console.log(val, oldVal)
         },
 
-        // name: {
-        //   handler: 'nameChange'
-        // },
+      //   name: {
+      //     handler: 'nameChange'
+      //   },
 
-        // myObj: {
-        //   handler: function (val) {
-        //     console.log(val)
-        //   },
-        //   deep: true
-        // },
-      }
+      //   myObj: {
+      //     handler: function (val) {
+      //       console.log(val)
+      //     },
+      //     deep: true  // 중괄호나 대괄호로 감싸져 있는 변수를 감시하기 위해서는 deep 이 필요하다.
+      //   },
+      // }
     })
   </script>
 </body>
