@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>회문 검사기</h3>
+  <div id="app">
+    <input type="text" id="test">
+    <button v-on:click="verify">확인하기</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      methods: {
+        verify: function() {
+          console.log(test.value.length)
+          if (test.value.length == 0){
+            alert('내용을 입력해 주세요!')
+          } else if (test.value == test.value.split('').reverse().join('')){
+            alert('회문입니다')
+          } else {
+            alert('회문이 아닙니다!')
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

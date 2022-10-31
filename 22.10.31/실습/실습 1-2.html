@@ -1,0 +1,64 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>첫번째 입력: {{first}} </h3>
+        <input type="text" v-model ="first">
+        <h3>두번째 입력: {{second}}</h3>
+        <input type="text" v-model ="second">
+        <h3>합산 입력: {{third()}}</h3>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        first: '',
+        second: '',
+      },
+      methods: {
+        third: function () {
+            return this.first + this.second
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>첫번째 입력: {{first}} </h3>
+        <input type="text" v-model ="first">
+        <h3>두번째 입력: {{second}}</h3>
+        <input type="text" v-model ="second">
+        <h3>합산 입력: {{first + second}}</h3>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        first: '',
+        second: '',
+      },
+    })
+  </script>
+</body>
+</html>

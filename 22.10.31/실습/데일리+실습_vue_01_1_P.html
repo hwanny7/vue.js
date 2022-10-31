@@ -10,20 +10,14 @@
   <div id="app">
     <h1>Popular Movies</h1>
     <div>
-      <li>{{ find() }}</li>
+      <li v-for ="(value, key) in movieinfo.results" v-if = "value.vote_average >= 8"> {{ value.title }} </li>
+      <!--참고: https://mine-it-record.tistory.com/366 -->
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
-      methods: {
-        find: function () {
-            this.movieinfo.results.forEach(element => {
-                console.log(element.vote_average)
-            });
-        }
-      },
       data: {
         movieinfo : {
           "page": 1,
