@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Cat Image</h1>
+    <div v-if="catUrl">  <!--초기값을 불러오지 못 했을 경우에 대비해서-->
+      <img :src="catUrl">
+    </div>
+    <br>
+    <button @click="getCat">Get Cat</button>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        catUrl: '',
+      },
+      methods: {
+        getCat: function() {
+          axios({
+            method: 'get',
+            url: 'https://api.thecatapi.com/v1/images/search'
+          })
+          .then(res => {
+            const rst = res.data[0].url
+            this.catUrl = rst
+          })
+        }
+      },
+      created: function() {  //초기에 실행해서 데이터를 불러오기
+        this.getCat()
+      }
+    })
+  </script>
+</body>
+</html>

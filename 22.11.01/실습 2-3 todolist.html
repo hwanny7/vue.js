@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <div id="app">
+    <input type="text" v-model="inputText">
+    <button @click="addTodo">+</button>
+    <ul>
+      <li v-for="todo in Todolist" :key="todo.id">
+        <input type="checkbox" @click="toggle(todo)">
+        <span :class ="{done:todo.completed}">{{todo.title}}</span>
+      </li> 
+    </ul>
+    <button @click="deleteTodo">완료 목록 삭제</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        inputText: '',
+        Todolist: [
+          { title: '밥먹기', completed: false}
+        ]
+      },
+      methods: {
+        deleteTodo: function(){
+          this.Todolist = this.Todolist.filter(todo => {
+            return !todo.completed  // completed가 true인 array를 리턴해서 원래 array를 덮어 씌우기
+          })
+        },
+        addTodo: function() {
+          if (!this.inputText.trim()){
+            alert('내용을 입력해주세요.')
+          } else {
+              const todo = {
+              title: this.inputText,
+              completed: false,
+              }
+              this.Todolist.push(todo)
+          }
+          this.inputText = ''
+          },
+        toggle: function(todo) {
+          todo.completed = !todo.completed
+        }
+        }
+      },
+    )
+
+  </script>
+</body>
+</html>
