@@ -27,13 +27,12 @@ export default {
 
 <style>
 .global {
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
-  margin-left: auto;
-  margin-right: auto;
   width : 100px; 
   height: 100px;
   border: 1px solid black;
