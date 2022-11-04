@@ -36,6 +36,7 @@ export default {
           this.array.push({time: clock+':'+ time, isActive :false})
         }
       }
+      
     },
     click(obj) {
       const result = !obj.isActive
