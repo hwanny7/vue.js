@@ -12,6 +12,18 @@ export default new Vuex.Store({
         price: 3000,
         selected: false,
         image: '<https://source.unsplash.com/featured/?americano'
+      },
+      {
+        title: '초코우유',
+        price: 4000,
+        selected: false,
+        image: '<https://source.unsplash.com/featured/?americano',
+      },
+      {
+        title: '카페라떼',
+        price: 4000,
+        selected: false,
+        image: '<https://source.unsplash.com/featured/?americano',
       }
     ],
     sizeList: [
@@ -25,8 +37,7 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
-    addOrder(state) {
-      ## 이 부분 써야함
+    addOrder() {
     },
     updateMenuList(state, selectedMenu) {
       state.menuList.map((menu) => {
