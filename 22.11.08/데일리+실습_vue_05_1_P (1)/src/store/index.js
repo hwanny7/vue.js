@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     totalPrice: null,
+    optionPrice: 0,
     optionList: [
       {
         type:'샷',
@@ -47,17 +48,17 @@ export default new Vuex.Store({
     ],
     sizeList: [
       {
-      name: 'Tall',
+      name: 'small',
       price: 500,
       selected: false
     },
     {
-      name: 'Grande',
+      name: 'medium',
       price: 1000,
       selected: false
     },
     {
-      name: 'Venti',
+      name: 'large',
       price: 1500,
       selected: false
     }
@@ -74,8 +75,9 @@ export default new Vuex.Store({
         state.totalPrice += order.size.price
       }
       )
-      return state.totalPrice
+      return state.totalPrice + state.optionPrice
     },
+
   },
   mutations: {
     updateOptionList(state, object){
@@ -108,6 +110,10 @@ export default new Vuex.Store({
       if (check == 2){
         const copy = JSON.parse(JSON.stringify(state.optionList))
         state.orderList.push({menu:selected_menu, size:selected_size, option:copy})
+        copy.forEach((elem) => {
+          state.optionPrice += elem.price * elem.count
+        })
+        console.log(state.optionPrice)
       } else alert('메뉴를 다 선택하십시오.')
       state.optionList = state.optionList.map((option) => {
         option.count = 0

@@ -1,8 +1,13 @@
 <template>
   <div>
-    <button style="color:black" type="button" class="btn btn-outline-secondary box2" @click="updateSizeStatus"
+    <button style="color:black" type="button" class="btn btn-outline-secondary box2 d-flex flex-row justify-content-between mt-4 align-items-center" @click="updateSizeStatus"
     :class="{buttonColor:size.selected}">
-    {{size.name}} {{size.price}}
+    <div>
+      {{size.name}}
+    </div>
+    <div>
+    </div>
+      {{size.price}}
     </button>
   </div>
 </template>

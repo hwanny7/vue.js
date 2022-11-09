@@ -1,9 +1,17 @@
 <template>
   <div>
-    <button style="color:black" type="button" class="btn btn-outline-secondary box" @click="updateMenuStatus"
+    <button style="color:black" type="button" class="btn btn-outline-success box d-flex flex-row justify-content-between mt-4 align-items-center" @click="updateMenuStatus"
     :class="{buttonColor:menu.selected}"
-    ><img :src="menu.image" id=image>
-    {{menu.title}} {{menu.price}}
+    >
+    <div>
+      <img :src="menu.image" id=image>
+    </div>
+    <div>
+        {{menu.title}}
+    </div>
+    <div>
+      {{menu.price}}
+    </div>
     </button>
   </div>
 </template>
@@ -31,6 +39,6 @@ export default {
   width: 300px
 }
 .buttonColor {
-  background-color: gray;
+  background-color: green;
 }
 </style>

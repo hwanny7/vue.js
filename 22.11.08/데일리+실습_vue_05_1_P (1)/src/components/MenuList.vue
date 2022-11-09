@@ -1,7 +1,7 @@
 <template>
   <div class="menu-list" >
-    <div>
-      <h1>1. 음료를 고르세요.</h1>
+    <div class="d-flex flex-column align-items-center">
+      <h2 class="mt-3">1. 음료를 고르세요.</h2>
       <MenuListItem
       v-for="(menu, index) in menuList"
       :key="index"
@@ -35,5 +35,4 @@ export default {
 </script>
 
 <style>
-
 </style>

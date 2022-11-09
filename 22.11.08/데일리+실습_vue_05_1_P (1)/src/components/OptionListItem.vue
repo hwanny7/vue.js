@@ -1,10 +1,10 @@
 <template>
-  <div style="color:black" class="btn btn-outline-secondary box justify-content-evenly d-flex flex-row">
+  <div style="color:black" class="btn btn-outline-secondary justify-content-between align-items-center d-flex flex-row mt-4 buttonSize">
     <span>{{option.type}} </span>
-    <div>
-      <button @click="decrease">-
-      </button>
-      <button @click="increase">+</button>
+    <div class="d-flex flex-row justify-content-between align-items-center">
+      <button class="btn btn-warning smallButton" @click="decrease">-</button>
+      <div>{{option.count}}</div>
+      <button class="btn btn-warning smallButton" @click="increase">+</button>
     </div>
   </div>
 </template>
@@ -29,7 +29,11 @@ export default {
 </script>
 
 <style>
-.box {
-  width: 300px
+.buttonSize {
+  width: 300px;
+  height: 62px;
+}
+.smallButton {
+  border-radius: 70%;
 }
 </style>

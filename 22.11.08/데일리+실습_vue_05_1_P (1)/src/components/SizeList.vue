@@ -1,11 +1,13 @@
 <template>
   <div>
-    <h1>2. 사이즈를 고르세요.</h1>
-    <SizeListItem
-      v-for="(size, index) in sizeList"
-      :key="index"
-      :size="size"
-    />
+    <h2 class="mt-3">2. 사이즈를 고르세요.</h2>
+    <div class="d-flex flex-column align-items-center">
+      <SizeListItem
+        v-for="(size, index) in sizeList"
+        :key="index"
+        :size="size"
+      />
+    </div>
   </div>
 </template>
 

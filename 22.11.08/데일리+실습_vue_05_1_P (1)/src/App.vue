@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Coffee Order App</h1>
+    <h1 class="mb-5 mt-5">Coffee Order App</h1>
     <div class="d-flex justify-content-evenly">
     <div class="menuBox">
       <MenuList/>  
@@ -12,8 +12,11 @@
       <OptionList/>
     </div>
     </div>
-    <button class="buttonBox" @click="addOrder">장바구니 담기</button>
-    <OrderList/>
+    <button type="button" class="btn btn-success buttonBox" @click="addOrder">장바구니 담기</button>
+    <div class='d-flex justify-content-center'>
+      <OrderList/>
+    </div>
+
   </div>
 </template>
 
@@ -55,9 +58,13 @@ ul {
 
 .menuBox {
   border: solid 1px black;
-  height: 400px;
+  border-radius: 5%;
+  width: 350px;
+  height: 350px;
 }
 .buttonBox {
-  width: 860px;
+  width: 1500px;
+  margin: 30px;
+  height: 50px;
 }
 </style>

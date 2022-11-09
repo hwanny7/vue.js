@@ -1,15 +1,17 @@
 <template>
-  <div class="justify-content-start" v-if="totalOrderCount && totalOrderPrice">
+  <div class="bg-success text-dark bg-opacity-25 rounded-4 px-3 py-3" style="width: 1500px;" v-if="totalOrderCount && totalOrderPrice">
     <div>
-      <h1>주문내역</h1>
-    </div>
-    <div>
-      <h1>총 {{totalOrderCount}}건: {{totalOrderPrice}}</h1>
-      <OrderListItem
-      v-for="(order, index) in orderList"
-      :key="index"
-      :order="order"
-      />
+      <div>
+        <h1 class="text-start">주문 내역</h1>
+        <h5 class="mt-3 text-start">총 {{totalOrderCount}}건: {{totalOrderPrice}}원</h5>
+      </div>
+      <div>
+        <OrderListItem
+        v-for="(order, index) in orderList"
+        :key="index"
+        :order="order"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -22,9 +24,13 @@ export default {
   components: {
     OrderListItem,
   },
+  data(){
+    return {
+      optionPrice: 0
+    }
+  },
   computed: {
     orderList() {
-      console.log(this.$store.state.orderList)
       return this.$store.state.orderList
     },
     totalOrderCount() {

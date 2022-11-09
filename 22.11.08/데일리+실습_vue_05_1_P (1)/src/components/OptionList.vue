@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>3. 옵션을 고르세요.</h1>
+    <h2 class="mt-3">3. 옵션을 고르세요.</h2>
     <div class="d-flex flex-column align-items-center">
       <OptionListItem
       v-for="(option, index) in optionList"
