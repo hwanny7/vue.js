@@ -1,6 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div id="app" class="container d-flex flex-row mt-5">
+      <div class='col-3 border border-dark rounded-3 d-flex align-items-center justify-content-center'>
+        <div class="mx-3">
+          <nav>
+          <router-link :to="{ name : 'AllTodoPage' }" style="text-decoration:none"><h1>모든</h1></router-link>
+          <router-link :to="{ name : 'TodayTodoPage'}" style="text-decoration:none"><h1>오늘</h1></router-link>
+          <router-link :to="{ name : 'ImportantTodoPage'}" style="text-decoration:none"><h1>중요</h1></router-link>
+          </nav>
+        </div>
+      </div>
+      <router-view class='col-9'/>
   </div>
 </template>
 
