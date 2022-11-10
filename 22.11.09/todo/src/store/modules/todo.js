@@ -29,20 +29,20 @@ const todo = {
     getters: {
       importantTodo(state) {
         return state.allTodo.filter((todo) => {
-          return todo.isImportant
+          return todo.isImportant && !todo.isCompleted
         })
-      },
+      },  
       todayTodo(state) {
         return state.allTodo.filter((todo) => {
           let today = new Date().toISOString().slice(8, 10)
-          return today === todo.dueDateTime.slice(8, 10) ? true : false
+          return !todo.isCompleted && today === todo.dueDateTime.slice(8, 10) ? true : false
         })
       },
-      allTodo(state) {
-        return state.allTodo.filter((todo) => {
-          return !todo.iscompleted
-        })
-      }
+      // allTodo(state) {
+      //   return state.allTodo.filter((todo) => {
+      //     return !todo.isCompleted
+      //   })
+      // }
     },
     mutations: {
         CreateTodo(state, todo) {
@@ -70,6 +70,14 @@ const todo = {
             }
             return todo
           })
+        },
+        updateTodo(state, todoList) {
+          state.allTodo = state.allTodo.map(todo => {
+            if (todo === todoList.todo) {
+              todo.content = todoList.text
+            }
+            return todo
+          })
         }
     },
     actions: {
@@ -78,6 +86,11 @@ const todo = {
       },
       completed({commit}, todo) {
         commit('completed', todo)
+      },
+      updateTodo({commit}, todo) {
+        const text = document.getElementById(todo.id).querySelector('input').value
+        const todoList = {todo, text} // 이렇게 해도 todo:todo, text:text 라는 키값이 자동으로 생겨난다.
+        commit('updateTodo', todoList)
       }
     },
 }
