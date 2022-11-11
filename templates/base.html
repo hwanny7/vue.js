@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    #aTag {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;" 
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-expand-xxl navbar-light bg-black">
+      {% if user.is_authenticated %}
+      <h3 style="color:white;">Hello, {{ user.username }}</h3>
+      <a id="aTag" href="{% url 'accounts:profile' user %}">
+        내 프로필
+      </a>
+      <form action="{% url 'accounts:logout' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+      </form>
+      <a id="aTag" href="{% url 'movies:index'%}">Movie</a>
+      <a id="aTag" href="{% url 'community:index'%}">Community</a>
+      <a id="aTag" href="{% url 'community:create'%}">New Review</a>
+      {% else %}
+      <a id="aTag" href="{% url 'accounts:signup' %}">Signup</a>
+      <a id="aTag" href="{% url 'accounts:login' %}">Login</a>
+      {% endif %}
+    </nav>
+    {% block content %}
+    <style>
+      #imgTag {
+        transition: all 0.2s linear;
+      }
+      
+      #imgTag:hover{
+        transform: scale(1.4);
+      }
+
+    </style>
+    {% endblock content %}
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
