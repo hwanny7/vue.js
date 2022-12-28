@@ -87,6 +87,7 @@ export default new Vuex.Store({
         headers: getters.authHead,
       })
         .then(res => {
+          console.log(res)
           commit('SET_USER', res.data)
         })
     },

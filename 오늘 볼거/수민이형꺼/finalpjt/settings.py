@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'accounts',
     'movies',
     'collects',
-    'worldcups',
     'django_extensions',
     # Third party Apps
     'rest_framework',
